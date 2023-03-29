@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 12,
         fontWeight: "600",
-        textAlignVerticle: "center"
+        textAlignVertical: "center"
     },
 
     author: {

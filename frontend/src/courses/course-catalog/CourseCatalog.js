@@ -30,10 +30,10 @@ let courses = []
 for (let i = 0; i<10; i++){
   courses[i] = new Course(i, "Title of Course  "+ String(i),
   "Author Name " + i, "Subject", "Age Range",
-  require('./images/placeholderCourse.png'))
+  require('../images/placeholderCourse.png'))
   categories[i] = new Category(i, 
     'subject '+i, 
-    require('./images/placeholderCategory.png'))
+    require('../images/placeholderCategory.png'))
 }
 // this marks the end of the placeholder data 
 
