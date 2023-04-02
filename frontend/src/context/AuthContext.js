@@ -14,6 +14,7 @@ export const AuthProvider = ({children}) => {
     const logout = () => {
         setUserToken(null);
         setIsLoading(false);
+        // console.log('tim')
     }
 
     return (

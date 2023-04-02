@@ -11,7 +11,7 @@ import ArrowIcon from '../uikit/arrow_icon';
 import { StyleSheet } from 'react-native';
 import { AuthContext } from '../context/AuthContext';
 
-const Login = () => {
+const Login = ({ navigation }) => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -27,11 +27,11 @@ const Login = () => {
         </View>
 
         <View style ={styles.login_or_register}>
-          <TouchableOpacity style={styles.insensitive_validation}>
+          <TouchableOpacity onPress={() => navigation.navigate('Register')} style={styles.insensitive_validation}>
             <Text style={styles.insensitive_validation_text}>SIGN UP</Text>
           </TouchableOpacity>
           <View style={{width: 20}}/>
-          <TouchableOpacity style={styles.sensitive_validation}>
+          <TouchableOpacity onPress={() => navigation.navigate('Login')} style={styles.sensitive_validation}>
             <Text style={styles.sensitive_validation_text}>LOGIN</Text>
           </TouchableOpacity>
         </View>
@@ -102,7 +102,8 @@ const styles = StyleSheet.create({
 
   flavor: {
     width: 276,
-    height: 72
+    height: 72,
+    bottom: 30
   },
   flavor_text: {
     fontSize: 20,
@@ -113,7 +114,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     margin: 20,
     marginTop: 80,
-    bottom: 60,
+    bottom: 95,
     padding: 5
   },
 
@@ -168,7 +169,8 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: "#BCE0FD",
     marginBottom: 12,
-    flexDirection: 'row'
+    flexDirection: 'row',
+    bottom: 30
   },
 
   input_type: {

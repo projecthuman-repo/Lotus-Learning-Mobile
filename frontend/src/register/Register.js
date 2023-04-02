@@ -9,8 +9,11 @@ import {
 
 import ArrowIcon from '../uikit/arrow_icon';
 import { StyleSheet } from 'react-native';
+import FacebookIcon from '../uikit/facebook';
+import TwitterIcon from '../uikit/twitter';
+import GooglePlusIcon from '../uikit/googleplus';
 
-const Register = () => {
+const Register = ({ navigation }) => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -24,11 +27,11 @@ const Register = () => {
         </View>
 
         <View style ={styles.login_or_register}>
-          <TouchableOpacity style={styles.sensitive_validation}>
+          <TouchableOpacity onPress={() => navigation.navigate('Register')} style={styles.sensitive_validation}>
             <Text style={styles.sensitive_validation_text}>SIGN UP</Text>
           </TouchableOpacity>
           <View style={{width: 20}}/>
-          <TouchableOpacity style={styles.insensitive_validation}>
+          <TouchableOpacity onPress={() => navigation.navigate('Login')} style={styles.insensitive_validation}>
             <Text style={styles.insensitive_validation_text}>LOGIN</Text>
           </TouchableOpacity>
         </View>
@@ -72,6 +75,12 @@ const Register = () => {
           </View>
         </View>
 
+        <View style={{flexDirection: 'row', position: 'absolute', bottom: 145}}>
+          <TouchableOpacity style={styles.circle}><FacebookIcon/></TouchableOpacity>
+          <TouchableOpacity style={styles.circle}><TwitterIcon/></TouchableOpacity>
+          <TouchableOpacity style={styles.circle}><GooglePlusIcon/></TouchableOpacity>
+        </View>
+
         <TouchableOpacity style={username != '' && email != '' && password != '' ? styles.validate : styles.incomplete}>
           <ArrowIcon/>
         </TouchableOpacity>
@@ -90,13 +99,25 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 
+  circle:{
+    width: 55,
+    height: 55,
+    borderWidth: 1,
+    borderRadius: 55/2,
+    borderColor: '#BCE0FD',
+    margin: 12,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
   form_container: {
     bottom: 50
   },
 
   flavor: {
     width: 276,
-    height: 72
+    height: 72,
+    bottom: 30
   },
   flavor_text: {
     fontSize: 20,
@@ -107,7 +128,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     margin: 20,
     marginTop: 80,
-    bottom: 60,
+    bottom: 95,
     padding: 5
   },
 
@@ -162,7 +183,8 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: "#BCE0FD",
     marginBottom: 12,
-    flexDirection: 'row'
+    flexDirection: 'row',
+    bottom: 30
   },
 
   input_type: {
