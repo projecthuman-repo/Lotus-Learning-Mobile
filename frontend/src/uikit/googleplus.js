@@ -1,12 +1,16 @@
 import React from 'react';
+
+// The Svg and Path components are used to render the SVG file.
 import Svg, {Path} from 'react-native-svg';
 
+// The GooglePlusProps interface is used to define the props that the GooglePlusIcon component accepts.
 interface GooglePlusProps {
     color?: string,
     width?: number,
     height?: number
 }
 
+// The GooglePlusIcon component is used to render the Google Plus icon.
 const GooglePlusIcon = ({color='#2699FB', width=16, height=10.21} : GooglePlusProps) => {
     return (
         <Svg width={width} height={height} viewBox="0 0 16 11" fill="none">

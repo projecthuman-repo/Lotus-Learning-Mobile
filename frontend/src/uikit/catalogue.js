@@ -1,12 +1,16 @@
 import React from 'react';
+
+// The Svg and Path components are used to render the SVG file.
 import Svg, {Path} from 'react-native-svg';
 
+// The CatalogueProps interface is used to define the props that the CatalogueIcon component accepts.
 interface CatalogueProps {
     color?: string,
     width?: number,
     height?: number
 }
 
+// The CatalogueIcon component is used to render the catalogue icon.
 const CatalogueIcon = ({color='#2699FB', width=20, height=20} : CatalogueProps) => {
     return (
         <Svg width={width} height={height} viewBox="0 0 15 18" fill="none" xmlns="http://www.w3.org/2000/svg">

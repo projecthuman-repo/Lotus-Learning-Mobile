@@ -1,12 +1,16 @@
 import React from 'react';
+
+// The Svg and Path components are used to render the SVG file.
 import Svg, {Path} from 'react-native-svg';
 
+// The LockProps interface is used to define the props that the LockIcon component accepts.
 interface LockProps {
     color?: string,
     width?: number,
     height?: number
 }
 
+// The LockIcon component is used to render the lock icon.
 const LockIcon = ({color='#2699FB', width=16, height=16} : LockProps) => {
     return (
         <Svg width={width} height={height} viewBox="0 0 14 16" fill="none">

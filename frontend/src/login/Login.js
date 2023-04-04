@@ -6,19 +6,25 @@ import {
   TextInput,
   TouchableOpacity,
 } from 'react-native';
-
-import ArrowIcon from '../uikit/arrow_icon';
 import { StyleSheet } from 'react-native';
-import { AuthContext } from '../context/AuthContext';
 
+import { AuthContext } from '../context/AuthContext';
+import ArrowIcon from '../uikit/arrow_icon';
+
+// navigation is a prop that is passed to the component by the React Navigation library.
+// It contains functions that we can use to navigate between screens.
 const Login = ({ navigation }) => {
+  // States for the input fields.
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  // Get the login function from the AuthContext.
   const {login} = useContext(AuthContext);
 
   return (
+    // SafeAreaView is a component that ensures that the content is not rendered behind the device's notches or rounded corners.
+    // It is a wrapper component that applies padding to the top and bottom of the screen. The padding is calculated based on the device's insets.
     <SafeAreaView style={{flex: 1, justifyContent: 'center'}}>
       <View style = {styles.container}>
 
@@ -26,6 +32,7 @@ const Login = ({ navigation }) => {
           <Text style={styles.flavor_text}>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</Text>
         </View>
 
+        {/* This is the navigation between login and register screens. */}
         <View style ={styles.login_or_register}>
           <TouchableOpacity onPress={() => navigation.navigate('Register')} style={styles.insensitive_validation}>
             <Text style={styles.insensitive_validation_text}>SIGN UP</Text>
@@ -36,6 +43,7 @@ const Login = ({ navigation }) => {
           </TouchableOpacity>
         </View>
 
+        {/* This is the form for the user to enter their login credentials. */}
         <View style={styles.form_container}>
           <View style={styles.input_container}>
             <Text style={styles.input_type}>USERNAME</Text>
@@ -75,6 +83,7 @@ const Login = ({ navigation }) => {
           </View>
         </View>
 
+        {/* The button is enabled if the user has entered something in ALL the input fields. Otherwise it is disabled. Styles are switched depending on the state. */}
         <TouchableOpacity 
           style={username != '' && email != '' && password != '' ? styles.validate : styles.incomplete}
           onPress={()=>{login()}}
@@ -88,6 +97,7 @@ const Login = ({ navigation }) => {
 
 export default Login;
 
+// Styles for the login screen. The styles are defined as a JavaScript object.
 const styles = StyleSheet.create({
   container: {
     flex: 1,

@@ -7,12 +7,17 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
+// uikit components
 import ArrowIcon from '../uikit/arrow_icon';
 import { StyleSheet } from 'react-native';
 import FacebookIcon from '../uikit/facebook';
 import TwitterIcon from '../uikit/twitter';
 import GooglePlusIcon from '../uikit/googleplus';
 
+// Register is very similar to login. The only difference is that it has an extra input field for the user to enter their email address.
+// Refer to login for comments on the code.
+// However when fully implemented, the register screen will also have buttons to register with Facebook, Twitter or Google APIs.
+// The submit button also would have a different function that requires implmenting a new API call.
 const Register = ({ navigation }) => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');

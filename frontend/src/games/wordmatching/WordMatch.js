@@ -1,9 +1,11 @@
+// This is the main file for the word matching game. It contains the logic for the game and the UI.
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Alert, TouchableOpacity } from 'react-native';
-import { useState } from 'react'
+import React, { useState } from 'react'
 
-//MAIN APP COMPONENT
-export default function App() {
+// The game is a simple word matching game. The user is given a list of words and must match them to their definitions.
+export default function WordMatch() {
+  // The wordMatches array contains the words that the user must match to their definitions.
   const [wordMatches, setWordMatches] = useState([
     {
       id: 'simple',
@@ -26,6 +28,8 @@ export default function App() {
       title: 'UNICEF',
     }
   ]);
+
+  // The wordGuesses array contains the definitions that the user must match to their words.
   const [wordGuesses, setWordGuesses] = useState([
     {
       id: 'simple',
@@ -49,7 +53,10 @@ export default function App() {
     }
   ]);
 
+  // The wordStore variable is used to store the index of the word that the user has selected to swap with another word.
   const [wordStore, setWordStore] = useState(null);
+
+  // The swapFunction function is used to swap the words that the user has selected to swap.
   const swapFunction = (first_id) => {
     if(first_id != wordStore || first_id != 0){
       let old = wordGuesses;
@@ -64,8 +71,12 @@ export default function App() {
     setWordStore(null)
   };
 
+  // The corrections variable is used to determine whether the user has made any mistakes.
   const [corrections, setCorrections] = useState(true);
 
+  // The validateWords function is used to check whether the user has matched the words to their definitions correctly.
+  // If the user has made any mistakes, the function will display an alert with the indices of the words that the user has matched incorrectly.
+  // The alert should be made into a modal or seperate page that displays the correct answers and leads to the final game screen as described in the Figma.
   const validateWords = (guess, match) => {
     let corr = true;
     setCorrections(true);
@@ -97,6 +108,7 @@ export default function App() {
 
   }
 
+  // The UI is split into two sections: the wordMatches section and the wordGuesses section.
   return (
     <View style={styles.viewport}>
 
@@ -123,20 +135,21 @@ export default function App() {
 
       </View>
       
-
       <View style={styles.problem_selection}>
         <Text style={styles.problem_desc}>Match the Words</Text>
       </View>
 
+      {/* The submit button is used to submit the user's answers with the validateWords function. */}
       <View style={styles.button_container}>
         <TouchableOpacity onPress={()=>validateWords(wordMatches, wordGuesses)}>
-          <Text style={styles.button_submit}>SUBMIT</Text>
+          <View>
+            <Text style={styles.button_submit}>SUBMIT</Text>
+          </View>
         </TouchableOpacity>
       </View>
      
       <StatusBar style="auto" />
   
-
     </View>
   );
 }
@@ -148,7 +161,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     justifyContent: 'center',
     right: '2%',
-    marginTop: 14
+    marginTop: 14,
   },
   guesses_frame: {
     marginBottom: 40
@@ -173,7 +186,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     left: 0,
     right: 0,
-    top: 0,
+    top: -30,
     bottom: 0,
     background: '#FFFFFF',
     alignItems: 'center',

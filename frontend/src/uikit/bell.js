@@ -1,12 +1,16 @@
 import React from 'react';
+
+// The Svg and Path components are used to render the SVG file.
 import Svg, {Path} from 'react-native-svg';
 
+// The BellProps interface is used to define the props that the BellIcon component accepts.
 interface BellProps {
     color?: string,
     width?: number,
     height?: number
 }
 
+// The BellIcon component is used to render the bell icon.
 const BellIcon = ({color='#2699FB', width=16, height=16} : BellProps) => {
     return (
         <Svg width={width} height={height} viewBox="0 0 17 16" fill="none">

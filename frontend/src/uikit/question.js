@@ -1,12 +1,16 @@
 import React from 'react';
+
+// The Svg and Path components are used to render the SVG file.
 import Svg, {Path} from 'react-native-svg';
 
+// The QuestionProps interface is used to define the props that the QuestionIcon component accepts.
 interface QuestionProps {
     color?: string,
     width?: number,
     height?: number
 }
 
+// The QuestionIcon component is used to render the question icon.
 const QuestionIcon = ({color='#2699FB', width=16, height=16} : QuestionProps) => {
     return (
         <Svg width={width} height={height} viewBox="0 0 16 16" fill="none">

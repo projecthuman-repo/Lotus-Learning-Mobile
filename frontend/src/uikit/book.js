@@ -1,12 +1,16 @@
 import React from 'react';
+
+// The Svg and Path components are used to render the SVG file.
 import Svg, {Path} from 'react-native-svg';
 
+// The BookProps interface is used to define the props that the BookIcon component accepts.
 interface BookProps {
     color?: string,
     width?: number,
     height?: number
 }
 
+// The BookIcon component is used to render the book icon.
 const BookIcon = ({color='#2699FB', width=25, height=25} : BookProps) => {
     return (
         <Svg width="19" height="18" viewBox="0 0 19 18" fill="none">

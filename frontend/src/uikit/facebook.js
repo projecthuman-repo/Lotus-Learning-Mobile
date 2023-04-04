@@ -1,12 +1,16 @@
 import React from 'react';
+
+// The Svg and Path components are used to render the SVG file.
 import Svg, {Path} from 'react-native-svg';
 
+// The FacebookProps interface is used to define the props that the FacebookIcon component accepts.
 interface FacebookProps {
     color?: string,
     width?: number,
     height?: number
 }
 
+// The FacebookIcon component is used to render the Facebook icon.
 const FacebookIcon = ({color='#2699FB', width=8.36, height=16.01} : FacebookProps) => {
     return (
         <Svg width={width} height={height} viewBox="0 0 9 17" fill="none">

@@ -1,12 +1,16 @@
 import React from 'react';
+
+// The Svg and Path components are used to render the SVG file.
 import Svg, {Path} from 'react-native-svg';
 
+// The ProfileDefaultIconProps interface is used to define the props that the ProfileDefaultIcon component accepts.
 interface ProfileDefaultIconProps {
     color?: string,
     width?: number,
     height?: number
 }
 
+// The ProfileDefaultIcon component is used to render the profile default icon.
 const ProfileDefault = ({color='#7FC4FD', width=68.6, height=68.6} : ProfileDefaultIconProps) => {
     return (
         <Svg width={width} height={height} viewBox="0 0 69 70" fill="none">

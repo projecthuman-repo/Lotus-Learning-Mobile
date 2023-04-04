@@ -1,12 +1,16 @@
 import React from 'react';
+
+// The Svg and Path components are used to render the SVG file.
 import Svg, {Path} from 'react-native-svg';
 
+// The TwitterProps interface is used to define the props that the TwitterIcon component accepts.
 interface TwitterProps {
     color?: string,
     width?: number,
     height?: number
 }
 
+// The TwitterIcon component is used to render the Twitter icon.
 const TwitterIcon = ({color='#2699FB', width=16, height=12.98} : FacebookProps) => {
     return (
         <Svg width={width} height={height} viewBox="0 0 16 13" fill="none">
